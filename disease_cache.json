@@ -1,0 +1,74 @@
+{
+    "Psoriasis": {
+        "description": "Seborrheic-like psoriasis  is a skin condition characterized by psoriasis with an overlapping seborrheic dermatitis.",
+        "precautions": [
+            "Consult a healthcare professional for specific guidance."
+        ]
+    },
+    "Acne": {
+        "description": "Acne fulminans (also known as \"acute febrile ulcerative acne\") is a severe form of the skin disease, acne, which can occur after unsuccessful treatment for another form of acne, acne conglobata. The condition is thought to be an immunologically induced disease in which elevated level of testosterone causes a rise in sebum and population of Cutibacterium acnes bacteria.",
+        "precautions": [
+            "Consult a healthcare professional for specific guidance."
+        ]
+    },
+    "Hyperthyroidism": {
+        "description": "Hyperthyroidism is a endocrine disease in which the thyroid gland produces excessive amounts of thyroid hormones. Thyrotoxicosis is a condition that occurs due to elevated levels of thyroid hormones of any cause and therefore includes hyperthyroidism.",
+        "precautions": [
+            "Consult a healthcare professional for specific guidance."
+        ]
+    },
+    "Drug Reaction": {
+        "description": "An adverse drug reaction (ADR) is an unintended medical event, which can potentially be associated with taking a medication. It can be disadvantageous or beneficial for the patient.",
+        "precautions": [
+            "Consult a healthcare professional for specific guidance."
+        ]
+    },
+    "AIDS": {
+        "description": "Human immunodeficiency virus (HIV) is a retrovirus that attacks the immune system. Without treatment, it can lead to a spectrum of conditions including acquired immunodeficiency syndrome (AIDS).",
+        "precautions": [
+            "Consult a healthcare professional for specific guidance."
+        ]
+    },
+    "GERD": {
+        "description": "Gastroesophageal reflux disease (GERD) or gastro-oesophageal reflux disease (GORD)  is a chronic upper gastrointestinal disease in which stomach content persistently and regularly flows up into the esophagus, resulting in symptoms and/or complications. Symptoms include dental corrosion, dysphagia, heartburn, odynophagia, regurgitation, non-cardiac chest pain, extraesophageal symptoms such as chronic cough, hoarseness, reflux-induced laryngitis, or asthma.",
+        "precautions": [
+            "Consult a healthcare professional for specific guidance."
+        ]
+    },
+    "Allergy": {
+        "description": "A food allergy is an abnormal immune response to food. The symptoms of the allergic reaction may range from mild to severe.",
+        "precautions": [
+            "Consult a healthcare professional for specific guidance."
+        ]
+    },
+    "Urinary tract infection": {
+        "description": "A urinary tract infection (UTI) is an infection that affects a part of the urinary tract, which includes the bladder, urethra and the kidney. Lower UTIs affect the bladder (cystitis) or urethra while upper UTIs affect the kidney (pyelonephritis).",
+        "precautions": [
+            "Consult a healthcare professional for specific guidance."
+        ]
+    },
+    "Arthritis": {
+        "description": "Arthritis is a general medical term used to describe a disorder in which the smooth cartilagenous layer that lines a joint is lost, resulting in bone grinding on bone during joint movement. Symptoms generally include joint pain and stiffness.",
+        "precautions": [
+            "Consult a healthcare professional for specific guidance."
+        ]
+    },
+    "Fungal infection": {
+        "description": "Fungal infection, also known as mycosis, is a disease caused by fungi. Different types are traditionally divided according to the part of the body affected: superficial, subcutaneous, and systemic.",
+        "precautions": [
+            "Consult a healthcare professional for specific guidance."
+        ]
+    },
+    "Hypothyroidism": {
+        "description": "Congenital hypothyroidism due to iodine deficiency (ICD-11), or congenital iodine deficiency syndrome (CIDS, ICD-10), is a medical condition present at birth marked by impaired physical and mental development, due to insufficient thyroid hormone production (hypothyroidism) caused by insufficient dietary iodine during pregnancy. Iodine deficiency is one cause of underactive thyroid function at birth, called congenital hypothyroidism.",
+        "precautions": [
+            "Consult a healthcare professional for specific guidance."
+        ]
+    },
+    "Chronic cholestasis": {
+        "description": "Cholestasis is a condition where the flow of bile from the liver to the duodenum is impaired. The two basic distinctions are:\n\nobstructive type of cholestasis, where there is a mechanical blockage in the duct system that can occur from a gallstone or malignancy, and\nmetabolic type of cholestasis, in which there are disturbances in bile formation that can occur because of genetic defects or acquired as a side effect of many medications.",
+        "precautions": [
+            "Consult a healthcare professional for specific guidance."
+        ]
+    }
+}

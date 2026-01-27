@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>MediMind | Intelligent Disease Predictor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div id="sidebarOverlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<header class="main-nav">
+    <div class="logo">Medi<span>Mind</span></div>
+    
+    <nav class="desktop-nav">
+        <a href="{{ url_for('home_page') }}">Home</a>
+        <a href="{{ url_for('predict_page') }}">Predict</a>
+        {% if session.get('user_id') %}
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('signup') }}" class="signup-btn">Signup</a>
+        {% endif %}
+    </nav>
+
+    <div class="menu-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </div>
+</header>
+
+<div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+        <div class="logo">Medi<span>Mind</span></div>
+        <div class="close-sidebar" onclick="toggleSidebar()">&times;</div>
+    </div>
+    <div class="sidebar-links">
+        <a href="{{ url_for('home_page') }}"><i class="fas fa-home"></i> Home</a>
+        <a href="{{ url_for('predict_page') }}"><i class="fas fa-stethoscope"></i> Predict</a>
+        
+        {% if session.get('user_id') %}
+            <a href="{{ url_for('logout') }}" class="logout-sidebar-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}"><i class="fas fa-user"></i> Login</a>
+            <a href="{{ url_for('signup') }}"><i class="fas fa-user-plus"></i> Signup</a>
+        {% endif %}
+    </div>
+</div>
+<section class="hero">
+    <div class="hero-content">
+        <h1>Intelligent Disease Predictor</h1>
+        <p>
+            AI-powered platform that predicts diseases using symptoms and provides
+            intelligent medical guidance & precautions.
+        </p>
+
+        <div class="hero-buttons">
+            {% if session.get('user_id') %}
+                <a href="{{ url_for('predict_page') }}" class="btn-primary">Start Diagnosis</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="btn-primary">Start Diagnosis</a>
+            {% endif %}
+            
+            <a href="#info" class="btn-outline">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<section class="info" id="info">
+    <div class="card">
+        <img src="{{ url_for('static', filename='images/diagnosis.jpg') }}" alt="AI Diagnosis">
+        <h3>AI Diagnosis</h3>
+        <p>Advanced machine learning model trained on symptom-based datasets.</p>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='images/madical.jpg') }}" alt="Medical Support">
+        <h3>Hospital Guidance</h3>
+        <p>Helps users understand conditions before consulting a doctor.</p>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='images/doctor.jpg') }}" alt="Doctor">
+        <h3>Smart Precautions</h3>
+        <p>AI-generated personalized precautions for predicted diseases.</p>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='images/doctor_AI.jpg') }}" alt="AI Doctor">
+        <h3>Medical Research</h3>
+        <p>Built using real-world medical datasets and research principles.</p>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='images/security.jpg') }}" alt="Security">
+        <h3>Secure Data</h3>
+        <p>User data is safely stored using secure databases and encryption.</p>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='images/healrhcare.jpg') }}" alt="Healthcare">
+        <h3>Future Healthcare</h3>
+        <p>Combining AI and healthcare for faster and smarter decisions.</p>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='images/confidence.jpg') }}" alt="Confidence">
+        <h3>Probability</h3>
+        <p>AI predicts the likelihood (%) of the top 3 possible diseases.</p>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='images/health_check.jpg') }}" alt="Health Check">
+        <h3>Health Guidance</h3>
+        <p>Get detailed medical information, precautions, and tips to stay safe.</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 MediMind | Intelligent Disease Predictor</p>
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

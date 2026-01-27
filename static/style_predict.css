@@ -1,0 +1,430 @@
+/* --- PREVIOUS STYLES (Keep These) --- */
+.glass-card {
+    background: rgba(47, 34, 53, 0.85); /* #2f2235 */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 600px;
+    margin: 40px auto;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.55);
+    color: white;
+    
+}
+
+/* --- RESULT SECTION STYLES --- */
+.result-label {
+    color: #bfc3ba;
+    text-transform: uppercase;
+    font-size: 1.0rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.predicted-disease {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    color: #ffffff;
+    text-shadow: 0 0 18px rgba(191, 195, 186, 0.45);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+/* --- INFO SECTION --- */
+.info-section {
+    background: rgba(63, 50, 68, 0.45); /* #3f3244 */
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.info-section h3 {
+    color: #bfc3ba;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-section p {
+    line-height: 1.6;
+    color: #a9aca9;
+    font-size: 0.95rem;
+}
+
+/* --- PRECAUTION LIST STYLING --- */
+.precaution-list {
+    list-style: none;
+    padding: 0;
+}
+
+.precaution-list li {
+    background: rgba(96, 73, 90, 0.25); /* #60495a */
+    border-left: 4px solid #bfc3ba;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    transition: transform 0.2s;
+}
+
+.precaution-list li:hover {
+    transform: translateX(5px);
+    background: rgba(191, 195, 186, 0.35);
+}
+
+.precaution-list i {
+     color: #bfc3ba;
+}
+
+/* --- ACTION BUTTONS --- */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+    padding-bottom: 50px;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #60495a, #bfc3ba);
+    color: #2f2235;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    flex: none;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #bfc3ba;
+    color: #bfc3ba;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    flex: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    box-shadow: 0 0 18px rgba(191, 195, 186, 0.5);
+    transform: translateY(-2px);
+}
+
+.btn-outline:hover {
+    background: rgba(191, 195, 186, 0.18);
+    color: #ffffff;
+    border-color: #ffffff;
+}
+.action-buttons .btn-secondary, 
+.action-buttons .btn-outline {
+    width: auto;            /* Prevents stretching */
+    min-width: 180px;       /* Gives them a nice consistent size */
+    padding: 12px 25px;     /* Adjusts internal spacing */
+    text-align: center;
+}
+
+/* --- LOGOUT BUTTON --- */
+.logout-btn {
+    background: #60495a;
+    padding: 8px 20px;
+    border-radius: 50px;
+    color: white !important;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background: #bfc3ba;
+    color: #2f2235 !important;
+    box-shadow: 0 0 12px rgba(191, 195, 186, 0.6);
+}
+
+/* --- DROPDOWN ROWS --- */
+/* --- DROPDOWN ROWS (Fixed for Mobile & Desktop) --- */
+.dropdown-content {
+    position: absolute; /* Floats over tags and buttons */
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #3f3244; 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0 0 12px 12px;
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 9999; /* Ensures it stays on top of buttons/tags */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.dropdown-item {
+    padding: 14px 18px; /* Slightly larger for easier mobile tapping */
+    cursor: pointer;
+    color: #a9aca9;
+    background: transparent;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.95rem;
+}
+
+.dropdown-item:hover {
+    background: rgba(96, 73, 90, 0.6);
+    color: #ffffff;
+    padding-left: 25px;
+}
+
+/* Custom Scrollbar for the dropdown to look cleaner */
+.dropdown-content::-webkit-scrollbar {
+    width: 6px;
+}
+.dropdown-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+/* --- SYMPTOM TAGS --- */
+.tag {
+    background: linear-gradient(135deg, #60495a, #bfc3ba) !important;
+    color: #2f2235 !important;
+    padding: 6px 14px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s;
+}
+
+.tag:hover {
+    transform: scale(1.05);
+}
+
+.tag span {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.tag span:hover {
+    color: #ffffff;
+}
+
+
+/* --- 1. Hero Section Centering --- */
+.hero-section {
+    text-align: center; /* Heading aur description ko center karne ke liye */
+    margin-bottom: 30px;
+    width: 100%;
+    margin-top: 80px;
+}
+
+.predict-title {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.predict-subtitle {
+    color: #90dbf4;
+    font-size: 1.1rem;
+}
+
+/* --- 2. Glass Card & Input Fix --- */
+.glass-card {
+    max-width: 700px; /* Card ki width thodi badha di hai */
+    margin: 0 auto;   /* Card ko page ke center mein lane ke liye */
+    background: rgba(47, 34, 53, 0.85);
+    padding: 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Label left mein rahega */
+}
+
+.search-container {
+    position: relative;
+    width: 100%; /* Input box ko bada (full width) karne ke liye */
+}
+
+#symptomInput {
+    width: 100%; /* Box full width cover karega */
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    outline: none;
+    box-sizing: border-box; /* Padding se width na badhe */
+}
+.confidence {
+    font-size: 1rem;
+    margin: 8px 0;
+    color: #9a8c98;
+}
+
+
+/* --- 3. Tags and Buttons --- */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center; /* Tags center mein dikhenge */
+}
+
+#analyze-btn {
+    width: 100%;
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+
+/* --- RESPONSIVENESS --- */
+/* ================= PREDICT PAGE RESPONSIVENESS ================= */
+
+@media (max-width: 768px) {
+    /* Adjust Main Container for Sidebar space */
+    .main-container {
+        padding: 15px;
+        width: 100%;
+    }
+
+    /* Predicted Disease Card */
+    .glass-card {
+        width: 95%;
+        padding: 22px;
+        margin: 20px auto;
+        border-radius: 18px;
+    }
+
+    .predicted-disease {
+        font-size: 1.8rem;
+        text-align: center;
+        padding-bottom: 12px;
+    }
+
+    .result-label {
+        text-align: center;
+        display: block;
+        font-size: 0.75rem;
+    }
+
+    /* Stack Buttons */
+    .action-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn-secondary, .btn-outline {
+        width: 100%;
+        padding: 14px;
+        font-size: 1rem;
+    }
+
+    /* Symptom Input Fixes */
+    #symptomInput {
+        font-size: 1rem;
+        padding: 12px !important;
+    }
+
+    .dropdown-content {
+        max-height: 200px;
+        width: 100%;
+    }
+}
+
+/* ================= EXTRA SMALL DEVICES (≤ 480px) ================= */
+@media (max-width: 480px) {
+
+    /* Prediction Title */
+    .hero-section h1 {
+        font-size: 1.8rem !important;
+        margin-top: 30px !important;
+    }
+
+    .hero-section p {
+        font-size: 0.9rem !important;
+        padding: 0 10px;
+    }
+
+    /* Result Card Specifics */
+    .predicted-disease {
+        font-size: 1.5rem;
+    }
+
+    .info-section {
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .info-section h3 {
+        font-size: 1rem;
+    }
+
+    .info-section p {
+        font-size: 0.88rem;
+    }
+
+    /* Tag Cloud Adjustments */
+    .tags-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .tag {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+        margin: 2px;
+    }
+
+    /* Precaution List spacing */
+    .precaution-list li {
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+
+    /* Dropdown UI */
+    .dropdown-item {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+/* --- PRINT VIEW FIX --- */
+@media print {
+    header, .menu-toggle, .sidebar, .sidebar-overlay, .btn-secondary, .hero-section {
+        display: none !important;
+    }
+    .glass-card {
+        background: white;
+        color: black;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    .predicted-disease { color: black; }
+    .info-section { border: 1px solid #eee; }
+}

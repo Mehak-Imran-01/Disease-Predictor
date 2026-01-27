@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Login | MediMind</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div id="sidebarOverlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<header class="main-nav">
+    <div class="logo">Medi<span>Mind</span></div>
+    
+    <nav class="desktop-nav">
+        <a href="{{ url_for('home_page') }}">Home</a>
+        <a href="{{ url_for('signup') }}" class="signup-btn">Signup</a>
+    </nav>
+
+    <div class="menu-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </div>
+</header>
+
+<div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+        <div class="logo">Medi<span>Mind</span></div>
+        <div class="close-sidebar" onclick="toggleSidebar()">&times;</div>
+    </div>
+    <div class="sidebar-links">
+        <a href="{{ url_for('home_page') }}"><i class="fas fa-home"></i> Home</a>
+        <a href="{{ url_for('signup') }}"><i class="fas fa-user-plus"></i> Signup</a>
+    </div>
+</div>
+<div class="flash-container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">
+            {{ message }}
+            {% if "exists" in message %}
+               <a href="{{ url_for('login') }}" class="alert-link">Login here</a>
+            {% endif %}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+</div>
+<section class="auth-container">
+    <div class="auth-box">
+        <h2>Welcome Back</h2>
+        <p>Login to continue to MediMind</p>
+
+        <form action="{{ url_for('login') }}" method="POST">
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            
+            <button type="submit" class="btn-primary full-width">Login</button>
+        </form>
+
+        <p class="auth-link">
+            Don’t have an account?
+            <a href="{{ url_for('signup') }}">Signup</a>
+        </p>
+    </div>
+    
+</section>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

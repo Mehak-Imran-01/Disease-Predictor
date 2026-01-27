@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict | MediMind</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_predict.css') }}">
+</head>
+<body>
+
+<div id="sidebarOverlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<header class="main-nav">
+    <div class="logo">Medi<span>Mind</span></div>
+    <nav class="desktop-nav">
+        <a href="{{ url_for('home_page') }}">Home</a>
+        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+    </nav>
+    <div class="menu-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </div>
+</header>
+
+<div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+        <div class="logo">Medi<span>Mind</span></div>
+        <div class="close-sidebar" onclick="toggleSidebar()">&times;</div>
+    </div>
+    <div class="sidebar-links">
+        <a href="{{ url_for('home_page') }}"><i class="fas fa-home"></i> Home</a>
+        <a href="{{ url_for('logout') }}" class="logout-sidebar-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+</div>
+
+<div class="main-container">
+
+{% if results %}
+
+    {% for result in results %}
+    <div class="glass-card result-card">
+
+        <p class="result-label">
+            AI Prediction #{{ loop.index }}
+        </p>
+
+        <h1 class="predicted-disease">
+            {{ result.disease }}
+        </h1>
+
+        <p class="confidence">
+            Confidence: <strong>{{ result.confidence }}%</strong>
+        </p>
+
+        <div class="info-section">
+            <h3><i class="fas fa-info-circle"></i> About Condition</h3>
+            <p>{{ result.description }}</p>
+        </div>
+
+        <div class="info-section">
+            <h3><i class="fas fa-shield-alt"></i> Precautions</h3>
+            <ul class="precaution-list">
+                {% for p in result.precautions %}
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    {{ p }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+    {% endfor %}
+
+    <div class="action-buttons">
+        <a href="{{ url_for('predict_page') }}" class="btn-secondary">Analysis Again</a>
+        <button onclick="window.print()" class="btn-outline">Download Report</button>
+    </div>
+
+{% else %}
+
+    <div class="hero-section">
+            <h1 class="predict-title">Symptom Checker</h1>
+            <p class="predict-subtitle">Select symptoms for an AI-powered analysis.</p>
+        </div>
+
+        <div class="glass-card">
+            <div class="input-group">
+                <label class="result-label">Select Symptoms</label>
+                <div class="search-container">
+                    <input type="text" id="symptomInput" placeholder="Search symptoms (e.g. fever)..." autocomplete="off">
+                    <div id="dropdownList" class="dropdown-content"></div>
+                </div>
+            </div>
+
+            <div id="selectedTags" class="tags-container"></div>
+
+            <div id="statusMsg" class="empty-state">
+                <p>No symptoms selected yet.</p>
+            </div>
+
+            <form id="predictForm" method="POST" action="{{ url_for('predict_page') }}">
+                <input type="hidden" name="symptoms" id="hiddenSymptoms">
+                <button type="submit" id="analyze-btn" class="btn-secondary" disabled>
+                    Analyze Symptoms
+                </button>
+            </form>
+        </div>
+    {% endif %}
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
