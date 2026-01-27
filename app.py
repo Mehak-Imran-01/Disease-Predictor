@@ -18,7 +18,6 @@ app.secret_key = os.getenv("SECRET_KEY")
 bcrypt = Bcrypt(app)
 
 # ---------------- LOAD MODEL ----------------
-# Standardized paths - ensure these files are in the same folder as app.py or update accordingly
 MODEL_PATH = "C:/Users/TOSHIBA/OneDrive/Desktop/Disease Predictor/disease_rf_model.pkl"
 ENCODER_PATH = "C:/Users/TOSHIBA/OneDrive/Desktop/Disease Predictor/label_encoder.pkl"
 
@@ -74,13 +73,11 @@ def save_cache(data):
         json.dump(data, f, indent=4)
 
 def extract_precautions(text):
-    # Split text into sentences based on periods followed by a space
     sentences = re.split(r'\.\s+', text)
     precautions = []
 
     for s in sentences:
-        s = s.strip()
-        # Filter for sentences that look like actual advice (length check)
+        s = s.strip())
         # Avoid common Wikipedia artifacts like [1], [2] citations
         s = re.sub(r'\[\d+\]', '', s) 
         
@@ -99,7 +96,6 @@ def get_disease_info(disease):
         return cache[disease]["description"], cache[disease]["precautions"]
 
     try:
-        # 1. Improve the search query by adding context
         search_query = f"{disease} (medical condition)"
         
         # 2. Get the page with the specific query
@@ -129,7 +125,6 @@ def get_disease_info(disease):
         return description, precautions
 
     except Exception:
-        # Fallback if Wikipedia fails
         return (
             f"Information regarding {disease} is not available.",
             ["Consult a medical professional for advice.", "Follow standard health protocols."]
@@ -149,8 +144,8 @@ def signup():
         password = request.form.get("password")
 
         if users_col.find_one({"email": email}):
-            flash("Email already exists! Please login instead.", "error") # Flash message
-            return render_template("signup.html") # Reload page instead of returning string
+            flash("Email already exists! Please login instead.", "error") 
+            return render_template("signup.html") 
 
         hashed = bcrypt.generate_password_hash(password).decode("utf-8")
         user_id = users_col.insert_one({
@@ -178,9 +173,9 @@ def login():
                 session["user_name"] = user["username"]
                 return redirect(url_for("predict_page"))
             else:
-                flash("Wrong password. Please try again.", "error") # Specific password error
+                flash("Wrong password. Please try again.", "error")
         else:
-            flash("No account found with this email.", "error") # Specific email error
+            flash("No account found with this email.", "error") r
             
         return render_template("login.html")
 
@@ -229,7 +224,6 @@ def predict_page():
                     "precautions": precautions
                 })
 
-            # --- MONGODB INSERTION ---
            # --- MONGODB INSERTION ---
             try:
                 # Create a list of just the disease names from your results
@@ -258,4 +252,4 @@ def predict_page():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
