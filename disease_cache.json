@@ -70,5 +70,17 @@
         "precautions": [
             "Consult a healthcare professional for specific guidance."
         ]
+    },
+    "Bronchial Asthma": {
+        "description": "Cardiac asthma is the medical condition of intermittent wheezing, coughing, and shortness of breath that is associated with underlying congestive heart failure (CHF). Symptoms of cardiac asthma are related to the heart's inability to effectively and efficiently pump blood in a CHF patient.",
+        "precautions": [
+            "Consult a healthcare professional for specific guidance."
+        ]
+    },
+    "Impetigo": {
+        "description": "Impetigo is a contagious bacterial infection that involves the superficial skin. The most common presentation is yellowish crusts on the face, arms, or legs.",
+        "precautions": [
+            "Consult a healthcare professional for specific guidance."
+        ]
     }
 }

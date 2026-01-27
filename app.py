@@ -5,12 +5,16 @@ import wikipedia
 import re
 from pymongo import MongoClient
 import json
+from dotenv import load_dotenv
 from flask_bcrypt import Bcrypt
 from bson.objectid import ObjectId
 
+
+
+load_dotenv()
 # ---------------- CONFIG ----------------
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET_KEY", "my_secret_key_789")
+app.secret_key = os.getenv("SECRET_KEY")
 bcrypt = Bcrypt(app)
 
 # ---------------- LOAD MODEL ----------------
@@ -22,7 +26,7 @@ model = joblib.load(MODEL_PATH)
 label_encoder = joblib.load(ENCODER_PATH)
 
 # ---------------- CONNECT TO MONGODB ----------------
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/")
+MONGO_URI = os.getenv("MONGO_URI")
 client_db = MongoClient(MONGO_URI)
 db = client_db["disease_prediction"]
 users_col = db["users"]
