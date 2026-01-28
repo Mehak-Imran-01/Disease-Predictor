@@ -18,11 +18,13 @@ app.secret_key = os.getenv("SECRET_KEY")
 bcrypt = Bcrypt(app)
 
 # ---------------- LOAD MODEL ----------------
-MODEL_PATH = "C:/Users/TOSHIBA/OneDrive/Desktop/Disease Predictor/disease_rf_model.pkl"
-ENCODER_PATH = "C:/Users/TOSHIBA/OneDrive/Desktop/Disease Predictor/label_encoder.pkl"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+MODEL_PATH = os.path.join(BASE_DIR, "disease_rf_model.pkl")
+LABEL_ENCODER_PATH = os.path.join(BASE_DIR, "label_encoder.pkl")
 
 model = joblib.load(MODEL_PATH)
-label_encoder = joblib.load(ENCODER_PATH)
+label_encoder = joblib.load(LABEL_ENCODER_PATH)
 
 # ---------------- CONNECT TO MONGODB ----------------
 MONGO_URI = os.getenv("MONGO_URI")
