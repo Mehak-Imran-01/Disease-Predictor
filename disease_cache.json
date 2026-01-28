@@ -82,5 +82,17 @@
         "precautions": [
             "Consult a healthcare professional for specific guidance."
         ]
+    },
+    "Pneumonia": {
+        "description": "Pneumonia is an inflammatory condition of the lung primarily affecting the small air sacs known as alveoli. Symptoms typically include some combination of productive or dry cough, chest pain, fever, and difficulty breathing.",
+        "precautions": [
+            "Consult a healthcare professional for specific guidance."
+        ]
+    },
+    "Hepatitis C": {
+        "description": "Hepatitis C is an infectious disease caused by the hepatitis C virus (HCV) that primarily affects the liver; it is a type of viral hepatitis. During the initial infection period, people often have mild or no symptoms.",
+        "precautions": [
+            "Consult a healthcare professional for specific guidance."
+        ]
     }
 }

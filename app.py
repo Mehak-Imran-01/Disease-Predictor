@@ -77,7 +77,7 @@ def extract_precautions(text):
     precautions = []
 
     for s in sentences:
-        s = s.strip())
+        s = s.strip()
         # Avoid common Wikipedia artifacts like [1], [2] citations
         s = re.sub(r'\[\d+\]', '', s) 
         
@@ -97,23 +97,29 @@ def get_disease_info(disease):
 
     try:
         search_query = f"{disease} (medical condition)"
-        
-        # 2. Get the page with the specific query
-        page = wikipedia.page(search_query, auto_suggest=True)
+
         description = wikipedia.summary(search_query, sentences=2)
 
-        # 3. Look for sections that contain actual precautions/advice
-        target_sections = ["prevention", "management", "treatment", "prognosis", "lifestyle"]
-        precautions_text = ""
-        
-        for section in page.sections:
-            if any(target in section.lower() for target in target_sections):
-                content = page.section(section)
-                if content:
-                    precautions_text += content + " "
+        # Try to fetch precautions (optional)
+        try:
+            page = wikipedia.page(search_query, auto_suggest=True)
+            target_sections = ["prevention", "management", "treatment", "prognosis", "lifestyle"]
+            precautions_text = ""
 
-        # 4. Extract 3-5 clean sentences
-        precautions = extract_precautions(precautions_text)
+            for section in page.sections:
+                if any(target in section.lower() for target in target_sections):
+                    content = page.section(section)
+                    if content:
+                        precautions_text += content + " "
+
+            precautions = extract_precautions(precautions_text)
+
+        except Exception:
+            precautions = [
+                "Maintain a healthy lifestyle.",
+                "Follow medical advice from professionals.",
+                "Seek timely medical consultation."
+            ]
 
         # Save to cache
         cache[disease] = {
@@ -126,8 +132,12 @@ def get_disease_info(disease):
 
     except Exception:
         return (
-            f"Information regarding {disease} is not available.",
-            ["Consult a medical professional for advice.", "Follow standard health protocols."]
+            f"{disease} is a medical condition. Detailed information is limited in demo mode.",
+            [
+                "Consult a qualified healthcare professional.",
+                "Follow standard medical precautions.",
+                "Avoid self-medication."
+            ]
         )
 
 # ---------------- ROUTES ----------------
@@ -175,7 +185,7 @@ def login():
             else:
                 flash("Wrong password. Please try again.", "error")
         else:
-            flash("No account found with this email.", "error") r
+            flash("No account found with this email.", "error") 
             
         return render_template("login.html")
 
