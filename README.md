@@ -70,8 +70,3 @@ http://127.0.0.1:5000
 ```
 
 ---
-
-## Deployed App
-
-You can access the live app here:
-https://disease-predictor-production-20bc.up.railway.app
