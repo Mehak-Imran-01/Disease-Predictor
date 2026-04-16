@@ -69,7 +69,3 @@ python app.py
 http://127.0.0.1:5000
 ```
 
----
-# Deployed App
-
-[Live App Link](https://disease-predictor-production-51b4.up.railway.app/)
